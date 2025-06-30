@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harsh Dharmani - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #e5e5e5; }
+    .glass-effect { background: rgba(16, 16, 16, 0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    .accent-gradient { background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .glow-button { transition: all 0.3s ease; box-shadow: 0 0 15px rgba(0, 201, 255, 0); }
+    .glow-button:hover { box-shadow: 0 0 25px rgba(0, 201, 255, 0.6); transform: scale(1.05); }
+    .card-glow { transition: all 0.3s ease; }
+    .card-glow:hover { box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); transform: translateY(-5px); }
+    .scroll-reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="antialiased">
+  <canvas id="particle-canvas" class="fixed top-0 left-0 w-full h-full z-0"></canvas>
+  <div class="relative z-10">
+    <header class="fixed top-0 left-0 right-0 z-50 glass-effect">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#" class="text-2xl font-black tracking-tighter">HD.</a>
+        <nav class="hidden md:flex space-x-8 items-center">
+          <a href="#about" class="hover:text-[#00C9FF] transition-colors duration-300">About</a>
+          <a href="#skills" class="hover:text-[#00C9FF] transition-colors duration-300">Skills</a>
+          <a href="#projects" class="hover:text-[#00C9FF] transition-colors duration-300">Projects</a>
+          <a href="#experience" class="hover:text-[#00C9FF] transition-colors duration-300">Experience</a>
+          <a href="#education" class="hover:text-[#00C9FF] transition-colors duration-300">Education</a>
+          <a href="#contact" class="hover:text-[#00C9FF] transition-colors duration-300">Contact</a>
+        </nav>
+        <a href="#contact" class="hidden md:block bg-[#00C9FF] text-black font-bold py-2 px-6 rounded-lg glow-button">
+          Get in Touch
+        </a>
+        <button id="mobile-menu-button" class="md:hidden">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+        <a href="#about" class="block py-2">About</a>
+        <a href="#skills" class="block py-2">Skills</a>
+        <a href="#projects" class="block py-2">Projects</a>
+        <a href="#experience" class="block py-2">Experience</a>
+        <a href="#education" class="block py-2">Education</a>
+        <a href="#contact" class="block py-2">Contact</a>
+        <a href="#contact" class="block bg-[#00C9FF] text-center text-black font-bold py-2 px-6 rounded-lg mt-4 glow-button">Get in Touch</a>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+      <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center">
+        <h1 class="text-5xl md:text-8xl font-black tracking-tighter mb-4">
+          AI/ML <span class="accent-gradient">Engineer</span>
+        </h1>
+        <p id="typed-text" class="text-xl md:text-2xl text-neutral-300 mb-8 max-w-3xl"></p>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <a href="#projects" class="bg-white text-black font-bold py-3 px-8 rounded-lg glow-button hover:bg-neutral-200">View My Work</a>
+          <a href="https://drive.google.com/file/d/1iITu0QOSDbjtVUX0Rgq8u4aS1-QNNhCK/view?usp=drive_link" target="_blank" class="border border-neutral-400 text-white font-bold py-3 px-8 rounded-lg glow-button hover:bg-white hover:text-black">Download CV</a>
+        </div>
+      </section>
+
+      <section id="about" class="py-24 scroll-reveal">
+        <div class="grid md:grid-cols-5 gap-12 items-center">
+          <div class="md:col-span-2">
+            <img src="03dc22fd-867d-4603-a35b-900361f807aa.jpg" alt="Portrait of Harsh Dharmani" class="rounded-lg w-full">
+          </div>
+          <div class="md:col-span-3">
+            <h2 class="text-4xl font-black tracking-tight mb-4">About Me</h2>
+            <p class="text-neutral-300 text-lg mb-6">
+              Aspiring AI/ML Engineer with a strong foundation in machine learning, deep learning, and time series forecasting. Experienced in building scalable AI-driven solutions such as a financial trading bot, time series pipelines, and image captioning systems.
+            </p>
+            <p class="text-neutral-300 text-lg mb-8">
+              Proficient in Python and tools like TensorFlow, Scikit-learn, and PySpark, with a strong background in mathematics and data analytics. Passionate about solving real-world problems using AI, with a focus on practical implementation and performance optimization.
+            </p>
+            <div class="flex space-x-4">
+              <a href="https://github.com/Harsh-dharmani" target="_blank" class="text-neutral-400 hover:text-white"><i data-lucide="github" class="w-6 h-6"></i></a>
+              <a href="https://www.linkedin.com/in/harsh-dharmani-614800214/" target="_blank" class="text-neutral-400 hover:text-white"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="py-24 scroll-reveal">
+        <h2 class="text-4xl font-black tracking-tight text-center mb-12">Technical Skills</h2>
+        <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div class="glass-effect rounded-xl p-6 card-glow">
+            <h3 class="text-xl font-bold mb-4">Machine Learning</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">TensorFlow</span>
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">Keras</span>
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">Scikit-learn</span>
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">MLlib</span>
+            </div>
+          </div>
+          <div class="glass-effect rounded-xl p-6 card-glow">
+            <h3 class="text-xl font-bold mb-4">Big Data & Cloud</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">Databricks</span>
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">Delta Lake</span>
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">PySpark</span>
+            </div>
+          </div>
+          <div class="glass-effect rounded-xl p-6 card-glow">
+            <h3 class="text-xl font-bold mb-4">NLP & LLMs</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">Transformers</span>
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">Hugging Face</span>
+            </div>
+          </div>
+          <div class="glass-effect rounded-xl p-6 card-glow">
+            <h3 class="text-xl font-bold mb-4">Programming & Frameworks</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">Python</span>
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">Django</span>
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">Flask</span>
+            </div>
+          </div>
+          <div class="glass-effect rounded-xl p-6 card-glow">
+            <h3 class="text-xl font-bold mb-4">Databases</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">SQL</span>
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">MySQL</span>
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="glass-effect rounded-xl p-6 card-glow">
+            <h3 class="text-xl font-bold mb-4">Data Visualization</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">Matplotlib</span>
+              <span class="bg-gray-700 text-sm font-semibold px-3 py-1 rounded">Power BI</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="py-24 scroll-reveal">
+        <h2 class="text-4xl font-black tracking-tight text-center mb-12">My Projects</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="glass-effect rounded-xl p-6 card-glow flex flex-col">
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-2">AI-Based Financial Trading Bot</h3>
+              <p class="text-neutral-300 mb-4">Built a stock prediction model using LSTM and historical financial data. Integrated news sentiment analysis and backtested performance.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-gray-700 text-xs font-semibold px-2.5 py-0.5 rounded">Python</span>
+                <span class="bg-gray-700 text-xs font-semibold px-2.5 py-0.5 rounded">TensorFlow</span>
+                <span class="bg-gray-700 text-xs font-semibold px-2.5 py-0.5 rounded">Streamlit</span>
+              </div>
+            </div>
+            <a href="https://github.com/Harsh-dharmani/stockprediction_mode" target="_blank" class="font-bold text-[#00C9FF] hover:underline flex items-center mt-auto">View on GitHub <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></a>
+          </div>
+          <div class="glass-effect rounded-xl p-6 card-glow flex flex-col">
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-2">Time Series Analysis in BFSI</h3>
+              <p class="text-neutral-300 mb-4">Built a scalable data pipeline using Databricks and Apache Spark to process time-series data from the BFSI sector. Applied Bronze-Silver-Gold architecture to clean and transform data.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-gray-700 text-xs font-semibold px-2.5 py-0.5 rounded">Databricks</span>
+                <span class="bg-gray-700 text-xs font-semibold px-2.5 py-0.5 rounded">PySpark</span>
+                <span class="bg-gray-700 text-xs font-semibold px-2.5 py-0.5 rounded">Delta Lake</span>
+              </div>
+            </div>
+            <a href="https://github.com/Harsh-dharmani" target="_blank" class="font-bold text-[#00C9FF] hover:underline flex items-center mt-auto">View on GitHub <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></a>
+          </div>
+          <div class="glass-effect rounded-xl p-6 card-glow flex flex-col">
+            <div class="flex-grow">
+              <h3 class="text-2xl font-bold mb-2">Image Captioning Tool</h3>
+              <p class="text-neutral-300 mb-4">Developed an AI system to generate captions using BLIP from Hugging Face. Built a Gradio interface and fine-tuned for business applications.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-gray-700 text-xs font-semibold px-2.5 py-0.5 rounded">PyTorch</span>
+                <span class="bg-gray-700 text-xs font-semibold px-2.5 py-0.5 rounded">Transformers</span>
+                <span class="bg-gray-700 text-xs font-semibold px-2.5 py-0.5 rounded">Gradio</span>
+              </div>
+            </div>
+             <a href="https://github.com/Harsh-dharmani/image_captioning_model" target="_blank" class="font-bold text-[#00C9FF] hover:underline flex items-center mt-auto">View on GitHub <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="py-24 scroll-reveal">
+        <h2 class="text-4xl font-black tracking-tight text-center mb-12">Work Experience</h2>
+        <div class="relative max-w-2xl mx-auto">
+          <div class="absolute left-1/2 w-0.5 h-full bg-neutral-700 -translate-x-1/2"></div>
+          <div class="relative mb-8">
+            <div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-[#00C9FF] rounded-full mt-1.5"></div>
+            <div class="ml-[calc(50%+2rem)] p-6 glass-effect rounded-xl card-glow">
+              <p class="text-sm text-neutral-400 mb-1">Jun 2024 - Aug 2024</p>
+              <h3 class="text-xl font-bold">Research Intern at SWC Tech Solutions</h3>
+              <ul class="list-disc list-inside text-neutral-300 mt-2 space-y-1">
+                <li>Developed a stock predictor using LSTM for time series forecasting.</li>
+                <li>Integrated financial indicators and news sentiment for enhanced accuracy.</li>
+                <li>Designed, trained, and backtested the model for autonomous trading decisions.</li>
+                <li>Gained hands-on experience in model deployment using Streamlit.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-[#00C9FF] rounded-full mt-1.5"></div>
+            <div class="mr-[calc(50%+2rem)] p-6 glass-effect rounded-xl card-glow text-left md:text-right">
+              <p class="text-sm text-neutral-400 mb-1">May 2023 - Jun 2023</p>
+              <h3 class="text-xl font-bold">Python Intern at Intern Pe</h3>
+              <ul class="list-disc list-inside text-neutral-300 mt-2 space-y-1">
+                <li>Focused on Python development with a strong emphasis on OOP principles.</li>
+                <li>Built applications including a file automation tool and data analysis scripts.</li>
+                <li>Worked with APIs and implemented multithreading for optimized performance.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="py-24 scroll-reveal">
+          <div class="max-w-2xl mx-auto text-center">
+              <h2 class="text-4xl font-black tracking-tight mb-8">Education</h2>
+              <div class="glass-effect rounded-xl p-8 card-glow inline-block">
+                  <h3 class="text-2xl font-bold">DY Patil International University</h3>
+                  <p class="text-neutral-300 mt-2">Bachelor of Technology in Computer Science (AIML Specialization)</p>
+                  <p class="text-neutral-400 text-sm mt-1">2021 - 2025</p>
+              </div>
+          </div>
+      </section>
+
+      <section id="certifications" class="py-24 scroll-reveal">
+        <h2 class="text-4xl font-black tracking-tight text-center mb-12">Certifications</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="glass-effect rounded-xl p-6 card-glow text-center">
+            <h3 class="text-xl font-bold mb-2">Cloud Computing</h3>
+            <p class="text-neutral-400">NPTEL (Nov 2024)</p>
+          </div>
+          <div class="glass-effect rounded-xl p-6 card-glow text-center">
+            <h3 class="text-xl font-bold mb-2">Python Fundamentals for Beginners</h3>
+            <p class="text-neutral-400">Great Learning (Apr 2023)</p>
+          </div>
+          <div class="glass-effect rounded-xl p-6 card-glow text-center">
+            <h3 class="text-xl font-bold mb-2">Artificial Intelligence & Machine Learning</h3>
+            <p class="text-neutral-400">Skill Vertex (Mar 2022)</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="py-24 scroll-reveal">
+        <div class="max-w-xl mx-auto text-center">
+          <h2 class="text-4xl font-black tracking-tight mb-4">Let's Build Something Amazing</h2>
+          <p class="text-neutral-300 text-lg mb-8">Have a project in mind or just want to say hi? My inbox is always open.</p>
+          <a href="mailto:harshdharmani.1@gmail.com" class="inline-block bg-[#00C9FF] text-black font-bold py-4 px-10 rounded-lg glow-button text-lg">
+            harshdharmani.1@gmail.com
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-8 border-t border-neutral-800">
+      <div class="container mx-auto px-6 text-center text-neutral-500">
+        <div class="flex justify-center space-x-4 mb-4">
+          <a href="https://github.com/Harsh-dharmani" target="_blank" class="hover:text-white"><i data-lucide="github" class="w-6 h-6"></i></a>
+          <a href="https://www.linkedin.com/in/harsh-dharmani-614800214/" target="_blank" class="hover:text-white"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+        </div>
+        <p>&copy; 2024 Harsh Dharmani. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    // --- LUCIDE IONS ---
+    lucide.createIcons();
+
+    // --- MOBILE MENU ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // --- TYPED.JS ---
+    const stringsToType = [
+      'I build intelligent ML systems.',
+      'I craft AI-powered trading bots.',
+      'I develop scalable data pipelines.',
+      'I turn ideas into deployable AI.'
+    ];
+    const typed = new Typed('#typed-text', {
+      strings: stringsToType,
+      typeSpeed: 50,
+      backSpeed: 25,
+      backDelay: 1500,
+      startDelay: 500,
+      loop: true,
+      showCursor: true,
+      cursorChar: '_',
+    });
+
+    // --- PARTICLE ANIMATION ---
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particlesArray;
+
+    class Particle {
+        constructor(x, y, directionX, directionY, size, color) {
+            this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY; this.size = size; this.color = color;
+        }
+        draw() {
+            ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false); ctx.fillStyle = this.color; ctx.fill();
+        }
+        update() {
+            if (this.x > canvas.width || this.x < 0) { this.directionX = -this.directionX; }
+            if (this.y > canvas.height || this.y < 0) { this.directionY = -this.directionY; }
+            this.x += this.directionX; this.y += this.directionY; this.draw();
+        }
+    }
+
+    function initParticles() {
+        particlesArray = [];
+        let numberOfParticles = (canvas.height * canvas.width) / 9000;
+        for (let i = 0; i < numberOfParticles; i++) {
+            let size = (Math.random() * 2) + 0.5;
+            let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+            let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+            let directionX = (Math.random() * .4) - .2;
+            let directionY = (Math.random() * .4) - .2;
+            particlesArray.push(new Particle(x, y, directionX, directionY, size, 'rgba(255, 255, 255, 0.3)'));
+        }
+    }
+
+    function animateParticles() {
+        requestAnimationFrame(animateParticles);
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+        }
+    }
+    
+    initParticles();
+    animateParticles();
+
+    window.addEventListener('resize', () => {
+        canvas.width = innerWidth; canvas.height = innerHeight; initParticles();
+    });
+
+    // --- SCROLL REVEAL ANIMATION ---
+    const scrollElements = document.querySelectorAll('.scroll-reveal');
+    const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend);
+    };
+    const displayScrollElement = (element) => { element.classList.add('visible'); };
+    const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => { if (elementInView(el, 1.25)) { displayScrollElement(el); } })
+    }
+    window.addEventListener('scroll', handleScrollAnimation);
+    handleScrollAnimation(); // Initial check
+  </script>
+</body>
+</html>
